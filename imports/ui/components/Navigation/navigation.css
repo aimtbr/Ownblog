@@ -1,0 +1,14 @@
+.logo {
+    height: 3rem;
+}
+
+.navbar {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.nav-main li:hover {
+    border: 1px solid lightgray;
+    border-top: none;
+    border-bottom: 3px solid lightgray;
+}
