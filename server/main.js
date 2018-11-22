@@ -1,5 +1,5 @@
 import { Meteor } from 'meteor/meteor';
-import { posts } from "../imports/api/collections/posts";
+import collections from "../imports/api/duck";
 
 Meteor.startup(() => {
     // code to run on server at startup

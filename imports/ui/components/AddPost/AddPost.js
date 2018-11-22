@@ -1,6 +1,4 @@
 import React from 'react';
-import {Meteor} from 'meteor/meteor';
-import {posts} from "../../../api/collections/posts";
 import {Link} from "react-router-dom";
 import './addpost.css';
 
@@ -44,10 +42,14 @@ const AddPost = props => {
                                 e.preventDefault();
                                 image_url = URL.createObjectURL(image_url.files[0]).slice(5);
                                 tags = tags.value.split(",");
-                                let createdAt = new Date().toDateString();
-                                Meteor.call("posts.add", props.userId, props.user, title.value, description.value,
-                                    image_url, tags, createdAt);
-                                console.log(posts.find({}).fetch())
+                                let timestamp = new Date().toDateString();
+                                props.NewPost({author_id: props.user.userId,
+                                    author: props.user.user,
+                                    title: title.value,
+                                    description: description.value,
+                                    timestamp: timestamp,
+                                    tags: tags,
+                                    image_url: image_url})
                                 //TODO: SETUP THE REQUIRED SIZE OF THE IMAGE
                             }} className="btn btn-success m-3">Save and add</button>
                         </Link>
